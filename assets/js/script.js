@@ -1,7 +1,12 @@
-var foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
+//need to fix and probably link JQuery, variables from fetch take longer to populate values
 
+// $(function () {
+var foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
 var drinkURL =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass";
+
+var foodResult = [];
+var drinkResult = [];
 
 function mealAPI(requestURL) {
   fetch(requestURL)
@@ -21,7 +26,7 @@ function mealAPI(requestURL) {
       ]);
 
       //array with [meal name, recipe link, meal image link]
-      return [
+      foodResult = [
         data.meals[randIndex].strMeal,
         "https://themealdb.com/meal/" + data.meals[randIndex].idMeal,
         data.meals[randIndex].strMealThumb,
@@ -46,7 +51,7 @@ function drinkAPI(requestURL) {
         data.drinks[randIndex].strDrinkThumb,
       ]);
 
-      return [
+      drinkResult = [
         data.drinks[randIndex].strDrink,
         "https://thecocktaildb.com/drink/" + data.drinks[randIndex].idDrink,
         data.drinks[randIndex].strDrinkThumb,
@@ -55,4 +60,7 @@ function drinkAPI(requestURL) {
 }
 
 mealAPI(foodURL);
+console.log(foodResult);
 drinkAPI(drinkURL);
+console.log(drinkResult);
+// });
