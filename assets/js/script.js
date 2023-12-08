@@ -7,6 +7,7 @@ var drinkURL =
 
 var foodResult = [];
 var drinkResult = [];
+var imgEl = document.querySelector(".create-my-date");
 
 function mealAPI(requestURL) {
   fetch(requestURL)
