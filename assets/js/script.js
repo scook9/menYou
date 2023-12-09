@@ -7,6 +7,12 @@ var drinkURL =
 
 var foodResult = [];
 var drinkResult = [];
+var drinkGlasses = [
+  "old-fashioned glass",
+  "highball glass",
+  "cocktail glass",
+  "copper mug",
+];
 
 function mealAPI(requestURL) {
   fetch(requestURL)
