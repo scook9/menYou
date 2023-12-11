@@ -32,36 +32,12 @@
       >
         <div class="col-sm-3 p-3">
           <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Main Dinner Ingredient
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Chicken
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Tofu
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Beef
-                  </button></a
-                >
-              </li>
+            <select name="Main Dinner Ingredient" class="btn btn-secondary dropdown-toggle">
+              <option value="">Main Dinner Ingredient</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Beef">Beef</option>
+              <option value="Tofu">Tofu</option>
+            </select>
             </ul>
           </div>
           <div class="generate-recipes m-2">
@@ -118,37 +94,12 @@
 
         <div class="col-sm-3 p-3">
           <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Drinks
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Shot glass
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Wine glass
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    High ball glass
-                  </button></a
-                >
-              </li>
-            </ul>
+            <select name="Cocktail Glass Type" class="btn btn-secondary dropdown-toggle">
+              <option value="">Cocktail Glass Type</option>
+              <option value="High Ball Glass">High Ball Glass</option>
+              <option value="Wine Glass">Wine Glass</option>
+              <option value="Shot Glass">Shot Glass</option>
+            </select>
           </div>
           <div class="generate-drinks m-2">
             <div class="card mb-3 border-white first-drink">
@@ -204,36 +155,12 @@
 
         <div class="col-sm-3 p-3">
           <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Watch
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Rotten tomato slider?
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    List of actors?
-                  </button></a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><button type="button" class="btn btn-primary">
-                    Surprise me?
-                  </button></a
-                >
-              </li>
+            <select name="Movie Genre Selector" class="btn btn-secondary dropdown-toggle">
+              <option value="">Movie Genre</option>
+              <option value="Action">Action</option>
+              <option value="Romance">Romance</option>
+              <option value="Comedy">Comedy</option>
+            </select>
             </ul>
           </div>
           <div class="generate-recipes"></div>
