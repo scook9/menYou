@@ -7,7 +7,6 @@ var drinkURL =
 
 var foodResult = [];
 var drinkResult = [];
-var imgEl = document.querySelector(".create-my-date");
 
 function mealAPI(requestURL) {
   fetch(requestURL)
@@ -15,53 +14,47 @@ function mealAPI(requestURL) {
       return response.json();
     })
     .then(function (data) {
-      var randIndex = Math.floor(Math.random() * data.meals.length);
+      var meals = data.meals;
 
-      // console.log("Recipe: " + data.meals[randIndex].strMeal);
-      // console.log("Recipe URL: https://themealdb.com/meal/" + data.meals[randIndex].idMeal);
-      // console.log("Image URL: " + data.meals[randIndex].strMealThumb);
-      console.log([
-        data.meals[randIndex].strMeal,
-        "https://themealdb.com/meal/" + data.meals[randIndex].idMeal,
-        data.meals[randIndex].strMealThumb,
-      ]);
+      if (meals && meals.length > 0) {
+        var randomMeal = meals[Math.floor(Math.random() * meals.length)];
 
-      //array with [meal name, recipe link, meal image link]
-      foodResult = [
-        data.meals[randIndex].strMeal,
-        "https://themealdb.com/meal/" + data.meals[randIndex].idMeal,
-        data.meals[randIndex].strMealThumb,
-      ];
+        console.log("Random Meal:", randomMeal);
+      } else {
+        console.log("No meals found for the specified criteria.");
+      }
     });
 }
 
-function drinkAPI(requestURL) {
-  fetch(requestURL)
+function generateDrink() {
+  var drinkCategory = document.getElementById("drinkCategory").value;
+  var drinkGlass = document.getElementById("drinkGlass").value;
+  var mainDrinkIngredient = document.getElementById(
+    "mainDrinkIngredient"
+  ).value;
+  let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
+  if (drinkCategory !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
+  } else if (drinkGlass !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
+  } else if (mainDrinkIngredient !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
+  }
+
+  fetch(drinkApiUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      var randIndex = Math.floor(Math.random() * data.drinks.length);
+      var drinks = data.drinks;
 
-      // console.log("Recipe: " + data.drinks[randIndex].strDrink);
-      // console.log("Recipe URL: https://thecocktaildb.com/drink/" + data.drinks[randIndex].idDrink);
-      // console.log("Image URL: " + data.drinks[randIndex].strDrinkThumb);
-      console.log([
-        data.drinks[randIndex].strDrink,
-        "https://thecocktaildb.com/drink/" + data.drinks[randIndex].idDrink,
-        data.drinks[randIndex].strDrinkThumb,
-      ]);
+      if (drinks && drinks.length > 0) {
+        var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
 
-      drinkResult = [
-        data.drinks[randIndex].strDrink,
-        "https://thecocktaildb.com/drink/" + data.drinks[randIndex].idDrink,
-        data.drinks[randIndex].strDrinkThumb,
-      ];
+        console.log("Random Drink:", randomDrink);
+      } else {
+        console.log("No drinks found for the specified criteria.");
+      }
     });
 }
-
-mealAPI(foodURL);
-console.log(foodResult);
-drinkAPI(drinkURL);
-console.log(drinkResult);
-// });

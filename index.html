@@ -1,183 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Date Night Planner</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Serif+Display:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="assets/button-date-night.png" alt="Logo" width="80" height="50" class="d-inline-block align-text-top">
-            <h1 class="d-inline-block align-text-top">Date Night
-              Planner</h1>
-          </a>
-        </div>
-      </nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="assets/button-date-night.png"
+            alt="Logo"
+            width="80"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
+          <h1 class="d-inline-block align-text-top">Date Night Planner</h1>
+        </a>
+      </div>
+    </nav>
 
-      <div class="container text-center">
-        <div class="row m-5 p-3 d-flex justify-content-evenly border border-dark-subtle">
-          <div class="col-sm-3 p-3">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dinner
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
-            <div class="generate-recipes m-2">
-
-              <div class="card mb-3 border-white first-recipe">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-white second-recipe">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-white third-recipe">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-white fourth-recipe">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+    <div class="container text-center">
+      <div
+        class="row m-5 p-3 d-flex justify-content-evenly border border-dark-subtle"
+      >
+        <div class="col-sm-3 p-3">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dinner
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#ingredientModal"
+                  >
+                    Generate from main ingredient
+                  </button></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#categoryModal"
+                  >
+                    Generate from Category
+                  </button></a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#">Generate Random Meal</a></li>
+            </ul>
           </div>
-
-          <div class="col-sm-3 p-3">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Drinks
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
+          <div class="generate-recipes m-2">
+            <div class="card mb-3 border-white first-recipe">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="generate-drinks m-2">
-
-              <div class="card mb-3 border-white first-drink">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
+            <div class="card mb-3 border-white second-recipe">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
                   </div>
                 </div>
               </div>
-              <div class="card mb-3 border-white second-drink">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-white third-drink">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3 border-white fourth-drin">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="" class="img-fluid rounded-start" alt="">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <link rel="stylesheet" href="" class="card-title">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
-
-          <div class="col-sm-3 p-3">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Watch
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
+            <div class="card mb-3 border-white third-recipe">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="generate-recipes">
-
-
+            <div class="card mb-3 border-white fourth-recipe">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-sm m-5">
-          <button type="button" class="btn btn-outline-danger create-date-btn"> <img src="assets/button-date-night.png" alt="Logo" width="80" height="50">Create My Date</button>
+        <div class="col-sm-3 p-3">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Drinks
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+          <div class="generate-drinks m-2">
+            <div class="card mb-3 border-white first-drink">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 border-white second-drink">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 border-white third-drink">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 border-white fourth-drin">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid rounded-start" alt="" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <link rel="stylesheet" href="" class="card-title" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 p-3">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Watch
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+          <div class="generate-recipes"></div>
         </div>
       </div>
 
+      <div class="col-sm m-5">
+        <button type="button" class="btn btn-outline-danger create-date-btn">
+          <img
+            src="assets/button-date-night.png"
+            alt="Logo"
+            width="80"
+            height="50"
+          />Create My Date
+        </button>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<!-- modals -->
+
+
+    <div
+      class="modal fade"
+      id="ingredientModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Choose your man ingredient
+            </h1>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="inredientInput" placeholder="type ingredient here" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="categoryModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Choose your food Category
+            </h1>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Click to see categories</option>
+              <option value="1">Beef</option>
+              <option value="2">Chicken</option>
+              <option value="3">Goat</option>
+              <option value="4">Lamb</option>
+              <option value="5">Pasta</option>
+              <option value="6">Pork</option>
+              <option value="7">Seafood</option>
+              <option value="8">Vegetarian</option>
+              <option value="9">Vegan</option>
+              <option value="10">Misc...</option>
+            </select>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
