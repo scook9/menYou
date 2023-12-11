@@ -1,12 +1,5 @@
 //need to fix and probably link JQuery, variables from fetch take longer to populate values
 
-// var foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
-// var drinkURL =
-//   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass";
-
-// var foodResult = [];
-// var drinkResult = [];
-
 function generateMeal() {
   var mealIngredient = document.getElementById("meal-select").value;
   console.log(mealIngredient);
@@ -24,27 +17,25 @@ function generateMeal() {
         var randomMeal = meals[Math.floor(Math.random() * meals.length)];
 
         console.log("Random Meal:", randomMeal);
-      } else {
-        console.log("No meals found for the specified criteria.");
       }
     });
 }
 
 function generateDrink() {
-  var drinkCategory = document.getElementById("drinkCategory").value;
-  var drinkGlass = document.getElementById("drinkGlass").value;
-  var mainDrinkIngredient = document.getElementById(
-    "mainDrinkIngredient"
-  ).value;
-  let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+  // var drinkCategory = document.getElementById("drinkCategory").value;
+  // var drinkGlass = document.getElementById("drinkGlass").value;
+  // var mainDrinkIngredient = document.getElementById(
+  //   "mainDrinkIngredient"
+  // ).value;
+  // let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-  if (drinkCategory !== "") {
-    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
-  } else if (drinkGlass !== "") {
-    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
-  } else if (mainDrinkIngredient !== "") {
-    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
-  }
+  // if (drinkCategory !== "") {
+  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
+  // } else if (drinkGlass !== "") {
+  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
+  // } else if (mainDrinkIngredient !== "") {
+  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
+  // }
 
   fetch(drinkApiUrl)
     .then(function (response) {
@@ -67,6 +58,6 @@ function generateMovie() {}
 
 function generateDate() {
   generateMeal();
-  generateDrink();
-  generateMovie();
+  // generateDrink();
+  // generateMovie();
 }
