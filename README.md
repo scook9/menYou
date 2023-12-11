@@ -13,7 +13,7 @@ this project runs as a web application which can be accessed through any standar
  the user can input into the text box a band that they like or already know, then click to discover artists that fit the same genre, from that list of similar artists the user can select any one to learn more about them. in addition, the user can elect to enter location information, and the app will compare that to tour dates and concert schedules of the new artist they're interested in. find your next closest show with venYou!
 
 
-link to deployed website:
+link to deployed website: https://scook9.github.io/menYou/
 
 ![screenshot of web function](./assets)
 
