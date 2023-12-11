@@ -1,5 +1,5 @@
 //need to fix and probably link JQuery, variables from fetch take longer to populate values
-
+var createDate = document.getElementsByClassName(".createDate")
 function generateMeal() {
   var mealIngredient = document.getElementById("meal-select").value;
   console.log(mealIngredient);
@@ -18,6 +18,10 @@ function generateMeal() {
 
         console.log("Random Meal:", randomMeal);
       }
+      var mealName = $('h2');
+      mealName.text(randomMeal["strMeal"]);
+      var mealLink = $('a');
+      mealLink.text(randomMeal["strMealThumb"]); 
     });
 }
 
@@ -41,6 +45,7 @@ function generateDrink() {
       } else {
         console.log("No drinks found for the specified criteria.");
       }
+
     });
 }
 
@@ -51,6 +56,7 @@ function generateDate() {
   generateDrink();
   generateMovie();
 }
+
 
 function generateMovie() {
   const options = {
@@ -72,3 +78,50 @@ function generateMovie() {
     .then((response) => response.json())
     .then((response) => console.log(response));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
