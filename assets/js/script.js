@@ -15,7 +15,7 @@ function generateMeal() {
 
       if (meals.length > 0) {
         var randomMeal = meals[Math.floor(Math.random() * meals.length)];
-
+        localStorage.setItem("randomMeal", JSON.stringify(randomMeal));
         console.log("Random Meal:", randomMeal);
       }
       var mealName = $("#createMealName");
@@ -37,7 +37,7 @@ function generateDrink() {
     })
     .then(function (data) {
       var drinks = data.drinks;
-
+      localStorage.setItem("drinks", JSON.stringify(drinks));
       if (drinks.length > 0) {
         var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
 
@@ -73,6 +73,7 @@ function generateMovie() {
   };
 
   var genre = document.getElementById("movie-select").value;
+  // localStorage.setItem()
 
   fetch(
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2023&sort_by=popularity.desc&with_genres=" +
@@ -83,6 +84,16 @@ function generateMovie() {
     .then((response) => console.log(response));
 }
 
+// localStorage.getItem()
+console.log(JSON.stringify(localStorage.getItem("randomMeal")));
+
+// console.log(JSON.stringify(localStorage.getItem("randomMeal"))[\"strMeal\"]);
+
+var mealName = $("#createMealName");
+var mealLink = $("#createMealLink");
+mealName.text(JSON.stringify(localStorage.getItem("randomMeal"))["strMeal"]);
+mealLink.text(JSON.stringify(localStorage.getItem("randomMeal"))["strMealThumb"]);
+// JSON.parse("randonMeal")
 
 
 
