@@ -38,34 +38,30 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dinner
+              Main Dinner Ingredient
             </button>
             <ul class="dropdown-menu">
               <li>
                 <a class="dropdown-item" href="#"
-                  ><button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#ingredientModal"
-                  >
-                    Generate from main ingredient
+                  ><button type="button" class="btn btn-primary">
+                    Chicken
                   </button></a
                 >
               </li>
               <li>
                 <a class="dropdown-item" href="#"
-                  ><button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#categoryModal"
-                  >
-                    Generate from Category
+                  ><button type="button" class="btn btn-primary">
+                    Tofu
                   </button></a
                 >
               </li>
-              <li><a class="dropdown-item" href="#">Generate Random Meal</a></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    Beef
+                  </button></a
+                >
+              </li>
             </ul>
           </div>
           <div class="generate-recipes m-2">
@@ -131,9 +127,27 @@
               Drinks
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    Shot glass
+                  </button></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    Wine glass
+                  </button></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    High ball glass
+                  </button></a
+                >
+              </li>
             </ul>
           </div>
           <div class="generate-drinks m-2">
@@ -199,9 +213,27 @@
               Watch
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    Rotten tomato slider?
+                  </button></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    List of actors?
+                  </button></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><button type="button" class="btn btn-primary">
+                    Surprise me?
+                  </button></a
+                >
+              </li>
             </ul>
           </div>
           <div class="generate-recipes"></div>
@@ -209,7 +241,11 @@
       </div>
 
       <div class="col-sm m-5">
-        <button type="button" class="btn btn-outline-danger create-date-btn">
+        <button
+          onclick="generateMeal()"
+          type="button"
+          class="btn btn-outline-danger create-date-btn"
+        >
           <img
             src="assets/button-date-night.png"
             alt="Logo"
@@ -220,94 +256,6 @@
       </div>
     </div>
 
-<!-- modals -->
-
-
-    <div
-      class="modal fade"
-      id="ingredientModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Choose your man ingredient
-            </h1>
-
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <input type="text" id="inredientInput" placeholder="type ingredient here" />
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      id="categoryModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Choose your food Category
-            </h1>
-
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Click to see categories</option>
-              <option value="1">Beef</option>
-              <option value="2">Chicken</option>
-              <option value="3">Goat</option>
-              <option value="4">Lamb</option>
-              <option value="5">Pasta</option>
-              <option value="6">Pork</option>
-              <option value="7">Seafood</option>
-              <option value="8">Vegetarian</option>
-              <option value="9">Vegan</option>
-              <option value="10">Misc...</option>
-            </select>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script
