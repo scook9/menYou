@@ -1,5 +1,5 @@
 //need to fix and probably link JQuery, variables from fetch take longer to populate values
-var createDate = document.getElementsByClassName(".createDate")
+
 function generateMeal() {
   var mealIngredient = document.getElementById("meal-select").value;
   console.log(mealIngredient);
@@ -18,9 +18,10 @@ function generateMeal() {
 
         console.log("Random Meal:", randomMeal);
       }
-      var mealName = $('h2');
+      var mealName = $("#createMealName");
+      var mealLink = $("#createMealLink");
+
       mealName.text(randomMeal["strMeal"]);
-      var mealLink = $('a');
       mealLink.text(randomMeal["strMealThumb"]); 
     });
 }
