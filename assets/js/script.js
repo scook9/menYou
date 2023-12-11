@@ -20,7 +20,6 @@ function generateMeal() {
       }
       var mealName = $("#createMealName");
       var mealLink = $("#createMealLink");
-
       mealName.text(randomMeal["strMeal"]);
       mealLink.text(randomMeal["strMealThumb"]); 
     });
@@ -47,6 +46,10 @@ function generateDrink() {
         console.log("No drinks found for the specified criteria.");
       }
 
+      var drinkName = $("#createDrinkName");
+      var drinkLink = $("#createDrinkLink")
+      drinkName.text(randomDrink["strDrink"]);
+      drinkLink.text(randomDrink["strDrinkThumb"]);
     });
 }
 
