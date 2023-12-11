@@ -1,19 +1,15 @@
-function generateMeal() {
-  var mainIngredient = document.getElementById("mainIngredient").value;
-  var foodCategory = document.getElementById("foodCategory").value;
-  var foodRegion = document.getElementById("foodRegion").value;
-  let mealApiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+//need to fix and probably link JQuery, variables from fetch take longer to populate values
 
-  if (mainIngredient !== "") {
-    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${mainIngredient}`;
-  } else if (foodCategory !== "") {
-    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${foodCategory}`;
-  } else if (foodRegion !== "") {
-    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${foodRegion}`;
-  }
-  console.log(mealApiUrl);
+// $(function () {
+var foodURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
+var drinkURL =
+  "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass";
 
-  fetch(mealApiUrl)
+var foodResult = [];
+var drinkResult = [];
+
+function mealAPI(requestURL) {
+  fetch(requestURL)
     .then(function (response) {
       return response.json();
     })
