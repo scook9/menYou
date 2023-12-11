@@ -28,9 +28,9 @@ function generateMeal() {
 function generateDrink() {
   var drinkGlass = document.getElementById("drink-select").value;
   console.log(drinkGlass);
-  var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + drinkGlass;
+  var drinkURL =
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + drinkGlass;
 
-    
   fetch(drinkURL)
     .then(function (response) {
       return response.json();
@@ -54,8 +54,31 @@ function generateMovie() {}
 function generateDate() {
   generateMeal();
   generateDrink();
-  // generateMovie();
+  generateMovie();
 }
+
+
+function generateMovie() {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYWZhY2EzZTE4ZWExYzg1ZTg2YjMxMDNiYWNiMzcyMyIsInN1YiI6IjY1Nzc1NWZiZWM4YTQzMDBlMDlhMGY1ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8v5Z0VqlnnmVGtURD871qN8SwL9ZHnQg7s8YPibUrfs",
+    },
+  };
+
+  var genre = document.getElementById("movie-select").value;
+
+  fetch(
+    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2023&sort_by=popularity.desc&with_genres=" +
+      genre,
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+}
+
 
 
 
