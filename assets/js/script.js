@@ -22,29 +22,19 @@ function generateMeal() {
 }
 
 function generateDrink() {
-  // var drinkCategory = document.getElementById("drinkCategory").value;
-  // var drinkGlass = document.getElementById("drinkGlass").value;
-  // var mainDrinkIngredient = document.getElementById(
-  //   "mainDrinkIngredient"
-  // ).value;
-  // let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+  var drinkGlass = document.getElementById("drink-select").value;
+  console.log(drinkGlass);
+  var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + drinkGlass;
 
-  // if (drinkCategory !== "") {
-  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
-  // } else if (drinkGlass !== "") {
-  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
-  // } else if (mainDrinkIngredient !== "") {
-  //   drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
-  // }
-
-  fetch(drinkApiUrl)
+    
+  fetch(drinkURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       var drinks = data.drinks;
 
-      if (drinks && drinks.length > 0) {
+      if (drinks.length > 0) {
         var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
 
         console.log("Random Drink:", randomDrink);
@@ -58,6 +48,6 @@ function generateMovie() {}
 
 function generateDate() {
   generateMeal();
-  // generateDrink();
+  generateDrink();
   // generateMovie();
 }
