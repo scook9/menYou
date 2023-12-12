@@ -91,15 +91,41 @@ function generateMovie() {
   };
 
   var genre = document.getElementById("movie-select").value;
-  // localStorage.setItem()
 
   fetch(
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2023&sort_by=popularity.desc&with_genres=" +
       genre,
     options
   )
-    .then((response) => response.json())
-    .then((response) => console.log(response));
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var movies = data.results;
+
+      if (movies.length > 0) {
+        var randomMovie = movies[Math.floor(Math.random() * movies.length)];
+
+        console.log(randomMovie.title);
+        console.log(randomMovie.overview);
+      } else {
+        console.log("No movies found for the specified criteria.");
+      }
+      var movieName = $("#createMovieName");
+
+      var movieLink = $("#createMovieLink");
+      var movieImg = $("#createMovieImg");
+
+      movieName.text(randomMovie.title);
+      movieImg.attr(
+        "src",
+        "https://image.tmdb.org/t/p/w600_and_h900_bestv2" +
+          randomMovie.poster_path
+      );
+      movieImg.attr("alt", "Movie poster");
+      movieImg.width(100);
+      movieImg.height(100);
+    });
 }
 if (localStorage.getItem("randomMeal")) {
   var mealName = $("#createMealName");
