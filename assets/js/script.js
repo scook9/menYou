@@ -19,9 +19,15 @@ function generateMeal() {
         console.log("Random Meal:", randomMeal);
       }
       var mealName = $("#createMealName");
-      var mealLink = $("#createMealLink");
+      var mealImg = $("#createMealImg");
+      //var mealLink = $("#createMealLink")
       mealName.text(randomMeal["strMeal"]);
-      mealLink.text(randomMeal["strMealThumb"]);
+
+      mealImg.attr("src", randomMeal["strMealThumb"]);
+      mealImg.attr("alt", "Description of the image");
+      mealImg.width(100);
+      mealImg.height(100);
+
     });
 }
 
