@@ -73,8 +73,6 @@ function generateDrink() {
       var drinkImg = $("#createDrinkImg");
 
       drinkName.text(randomDrink["strDrink"]);
-      drinkLink.text(randomDrink["strDrinkThumb"]);
-
       drinkImg.attr("src", randomDrink["strDrinkThumb"]);
       drinkImg.attr("alt", "Image of drink recipe");
       drinkImg.width(100);
