@@ -1,5 +1,4 @@
-//need to fix and probably link JQuery, variables from fetch take longer to populate values
-
+//fetch random meal with user given search criteria
 function generateMeal() {
   var foodCategory = document.getElementById("foodCategory").value;
   var foodRegion = document.getElementById("foodRegion").value;
@@ -19,14 +18,18 @@ function generateMeal() {
 
       if (meals.length > 0) {
         var randomMeal = meals[Math.floor(Math.random() * meals.length)];
+
+        //store meal to local storage
         localStorage.setItem("randomMeal", JSON.stringify(randomMeal));
         console.log("Random Meal:", randomMeal);
       }
+
+      //updating HTML content
       var mealName = $("#createMealName");
       var mealImg = $("#createMealImg");
-      var mealLabel = $("#titleLabelMeal")
-      //var mealLink = $("#createMealLink")
-      mealLabel.text("For Dinner Tonight: ")
+      var mealLabel = $("#titleLabelMeal");
+
+      mealLabel.text("For Dinner Tonight: ");
       mealName.text(randomMeal["strMeal"]);
       mealImg.attr("src", randomMeal["strMealThumb"]);
       mealImg.attr("alt", "Img of meal recipe");
@@ -35,6 +38,7 @@ function generateMeal() {
     });
 }
 
+//fetch random drink with user given search criteria
 function generateDrink() {
   var drinkCategory = document.getElementById("drinkCategory").value;
   var drinkGlass = document.getElementById("drinkGlass").value;
@@ -56,14 +60,16 @@ function generateDrink() {
 
       if (drinks.length > 0) {
         var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
+
+        //store to local storage
         localStorage.setItem("randomDrink", JSON.stringify(randomDrink));
       } else {
         console.log("No drinks found for the specified criteria.");
       }
 
+      //updating HTML content
       var drinkName = $("#createDrinkName");
-      var drinkLabel = $("#titleLabelDrink")
-      var drinkLink = $("#createDrinkLink");
+      var drinkLabel = $("#titleLabelDrink");
       var drinkImg = $("#createDrinkImg");
       drinkLabel.text("For Drinks: ");
       drinkName.text(randomDrink["strDrink"]);
@@ -74,12 +80,7 @@ function generateDrink() {
     });
 }
 
-function generateDate() {
-  generateMeal();
-  generateDrink();
-  generateMovie();
-}
-
+//fetch random movie with user given search criteria
 function generateMovie() {
   const options = {
     method: "GET",
@@ -106,15 +107,15 @@ function generateMovie() {
       if (movies.length > 0) {
         var randomMovie = movies[Math.floor(Math.random() * movies.length)];
         localStorage.setItem("randomMovie", JSON.stringify(randomMovie));
-
       } else {
         console.log("No movies found for the specified criteria.");
       }
+
+      //updating HTML content
       var movieName = $("#createMovieName");
-
-      var movieLabel = $("#titleLabelMovie")
-
+      var movieLabel = $("#titleLabelMovie");
       var movieImg = $("#createMovieImg");
+
       movieLabel.text("To Watch: ");
       movieName.text(randomMovie.title);
       movieImg.attr(
@@ -127,30 +128,63 @@ function generateMovie() {
       movieImg.height(100);
     });
 }
-if (localStorage.getItem("randomMeal")) {
-  var mealName = $("#createMealName");
-  var mealLink = $("#createMealLink");
-  mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
-  mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
-}
-if (localStorage.getItem("randomDrink")) {
-  var drinkName = $("#createDrinkName");
-  var drinkLink = $("#createDrinkLink");
-  drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
-  drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
+
+//function for generate date click
+function generateDate() {
+  generateMeal();
+  generateDrink();
+  generateMovie();
 }
 
+//set initial meal title and image from local storage on page load
+if (localStorage.getItem("randomMeal")) {
+  var mealName = $("#createMealName");
+  var mealImg = $("#createMealImg");
+  var mealLabel = $("#titleLabelMeal");
+
+  mealLabel.text("For Dinner Tonight: ");
+  mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
+  mealImg.attr(
+    "src",
+    JSON.parse(localStorage.getItem("randomMeal"))["strMealThumb"]
+  );
+  mealImg.attr("alt", "Img of meal recipe");
+  mealImg.width(100);
+  mealImg.height(100);
+}
+
+//set initial meal title and image from local storage on page load
+if (localStorage.getItem("randomDrink")) {
+  var drinkName = $("#createDrinkName");
+  var drinkImg = $("#createDrinkImg");
+  var drinkLabel = $("#titleLabelDrink");
+
+  drinkLabel.text("For Drinks: ");
+  drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
+
+  drinkImg.attr(
+    "src",
+    JSON.parse(localStorage.getItem("randomDrink"))["strDrinkThumb"]
+  );
+  drinkImg.attr("alt", "Image of drink recipe");
+  drinkImg.width(100);
+  drinkImg.height(100);
+}
+
+//set initial meal title and image from local storage on page load
 if (localStorage.getItem("randomMovie")) {
   var movieName = $("#createMovieName");
   var movieImg = $("#createMovieImg");
+  var movieLabel = $("#titleLabelMovie");
+
+  movieLabel.text("To Watch: ");
   movieName.text(JSON.parse(localStorage.getItem("randomMovie"))["title"]);
   movieImg.attr(
     "src",
     "https://image.tmdb.org/t/p/w600_and_h900_bestv2" +
-    JSON.parse(localStorage.getItem("randomMovie"))["poster_path"]
+      JSON.parse(localStorage.getItem("randomMovie"))["poster_path"]
   );
   movieImg.attr("alt", "Movie poster");
   movieImg.width(100);
   movieImg.height(100);
-
 }
