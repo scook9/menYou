@@ -1,12 +1,19 @@
 //need to fix and probably link JQuery, variables from fetch take longer to populate values
 
 function generateMeal() {
-  var mealIngredient = document.getElementById("meal-select").value;
-  console.log(mealIngredient);
-  var foodURL =
-    "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + mealIngredient;
+  var mainIngredient = document.getElementById("mainIngredient").value;
+  var foodCategory = document.getElementById("foodCategory").value;
+  var foodRegion = document.getElementById("foodRegion").value;
+  let mealApiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-  fetch(foodURL)
+  if (mainIngredient !== "") {
+    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${mainIngredient}`;
+  } else if (foodCategory !== "") {
+    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${foodCategory}`;
+  } else if (foodRegion !== "") {
+    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${foodRegion}`;
+  }
+  fetch(mealApiUrl)
     .then(function (response) {
       return response.json();
     })
@@ -27,17 +34,26 @@ function generateMeal() {
       mealImg.attr("alt", "Img of meal recipe");
       mealImg.width(100);
       mealImg.height(100);
-
     });
 }
 
 function generateDrink() {
-  var drinkGlass = document.getElementById("drink-select").value;
-  console.log(drinkGlass);
-  var drinkURL =
-    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + drinkGlass;
+  var drinkCategory = document.getElementById("drinkCategory").value;
+  var drinkGlass = document.getElementById("drinkGlass").value;
+  var mainDrinkIngredient = document.getElementById(
+    "mainDrinkIngredient"
+  ).value;
+  let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-  fetch(drinkURL)
+  if (drinkCategory !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
+  } else if (drinkGlass !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
+  } else if (mainDrinkIngredient !== "") {
+    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
+  }
+
+  fetch(drinkApiUrl)
     .then(function (response) {
       return response.json();
     })
@@ -53,12 +69,12 @@ function generateDrink() {
 
       var drinkName = $("#createDrinkName");
 
-      var drinkLink = $("#createDrinkLink")
-      var drinkImg = $('#createDrinkImg')
+      var drinkLink = $("#createDrinkLink");
+      var drinkImg = $("#createDrinkImg");
 
       drinkName.text(randomDrink["strDrink"]);
       drinkLink.text(randomDrink["strDrinkThumb"]);
-  
+
       drinkImg.attr("src", randomDrink["strDrinkThumb"]);
       drinkImg.attr("alt", "Image of drink recipe");
       drinkImg.width(100);
@@ -94,14 +110,13 @@ function generateMovie() {
     .then((response) => console.log(response));
 }
 if (localStorage.getItem("randomMeal")) {
-var mealName = $("#createMealName");
-var mealLink = $("#createMealLink");
-mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
-mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
+  var mealName = $("#createMealName");
+  var mealLink = $("#createMealLink");
+  mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
+  mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
 
-
-var drinkName = $("#createDrinkName");
-var drinkLink = $("#createDrinkLink");
-drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
-drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
+  var drinkName = $("#createDrinkName");
+  var drinkLink = $("#createDrinkLink");
+  drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
+  drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
 }
