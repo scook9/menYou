@@ -1,14 +1,11 @@
 //need to fix and probably link JQuery, variables from fetch take longer to populate values
 
 function generateMeal() {
-  var mainIngredient = document.getElementById("mainIngredient").value;
   var foodCategory = document.getElementById("foodCategory").value;
   var foodRegion = document.getElementById("foodRegion").value;
   let mealApiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-  if (mainIngredient !== "") {
-    mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${mainIngredient}`;
-  } else if (foodCategory !== "") {
+  if (foodCategory !== "") {
     mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${foodCategory}`;
   } else if (foodRegion !== "") {
     mealApiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${foodRegion}`;
@@ -40,17 +37,13 @@ function generateMeal() {
 function generateDrink() {
   var drinkCategory = document.getElementById("drinkCategory").value;
   var drinkGlass = document.getElementById("drinkGlass").value;
-  var mainDrinkIngredient = document.getElementById(
-    "mainDrinkIngredient"
-  ).value;
+
   let drinkApiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
   if (drinkCategory !== "") {
     drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${drinkCategory}`;
   } else if (drinkGlass !== "") {
     drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${drinkGlass}`;
-  } else if (mainDrinkIngredient !== "") {
-    drinkApiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${mainDrinkIngredient}`;
   }
 
   fetch(drinkApiUrl)
@@ -112,7 +105,8 @@ if (localStorage.getItem("randomMeal")) {
   var mealLink = $("#createMealLink");
   mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
   mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
-
+}
+if (localStorage.getItem("randomDrink")) {
   var drinkName = $("#createDrinkName");
   var drinkLink = $("#createDrinkLink");
   drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
