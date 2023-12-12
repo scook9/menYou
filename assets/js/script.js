@@ -15,17 +15,19 @@ function generateMeal() {
 
       if (meals.length > 0) {
         var randomMeal = meals[Math.floor(Math.random() * meals.length)];
-
+        localStorage.setItem("randomMeal", JSON.stringify(randomMeal));
         console.log("Random Meal:", randomMeal);
       }
       var mealName = $("#createMealName");
       var mealImg = $("#createMealImg");
       //var mealLink = $("#createMealLink")
       mealName.text(randomMeal["strMeal"]);
+
       mealImg.attr("src", randomMeal["strMealThumb"]);
       mealImg.attr("alt", "Img of meal recipe");
       mealImg.width(100);
       mealImg.height(100);
+
     });
 }
 
@@ -44,15 +46,16 @@ function generateDrink() {
 
       if (drinks.length > 0) {
         var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
-
-        console.log("Random Drink:", randomDrink);
+        localStorage.setItem("randomDrink", JSON.stringify(randomDrink));
       } else {
         console.log("No drinks found for the specified criteria.");
       }
 
       var drinkName = $("#createDrinkName");
+
       var drinkLink = $("#createDrinkLink")
       var drinkImg = $('#createDrinkImg')
+
       drinkName.text(randomDrink["strDrink"]);
       drinkLink.text(randomDrink["strDrinkThumb"]);
   
@@ -63,14 +66,11 @@ function generateDrink() {
     });
 }
 
-function generateMovie() {}
-
 function generateDate() {
   generateMeal();
   generateDrink();
   generateMovie();
 }
-
 
 function generateMovie() {
   const options = {
@@ -83,6 +83,7 @@ function generateMovie() {
   };
 
   var genre = document.getElementById("movie-select").value;
+  // localStorage.setItem()
 
   fetch(
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2023&sort_by=popularity.desc&with_genres=" +
@@ -93,49 +94,12 @@ function generateMovie() {
     .then((response) => console.log(response));
 }
 
+var mealName = $("#createMealName");
+var mealLink = $("#createMealLink");
+mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
+mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var drinkName = $("#createDrinkName");
+var drinkLink = $("#createDrinkLink");
+drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
+drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
