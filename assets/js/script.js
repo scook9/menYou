@@ -93,13 +93,15 @@ function generateMovie() {
     .then((response) => response.json())
     .then((response) => console.log(response));
 }
-
+if (localStorage.getItem("randomMeal")) {
 var mealName = $("#createMealName");
 var mealLink = $("#createMealLink");
 mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
 mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
 
+
 var drinkName = $("#createDrinkName");
 var drinkLink = $("#createDrinkLink");
 drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
 drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
+}
