@@ -141,9 +141,17 @@ if (localStorage.getItem("randomMeal")) {
   var mealName = $("#createMealName");
   var mealImg = $("#createMealImg");
   var mealLabel = $("#titleLabelMeal");
+  var mealLink = $("#createMealLink");
 
   mealLabel.text("For Dinner Tonight: ");
   mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
+
+  mealLink.attr(
+    "href",
+    "https://www.themealdb.com/meal/" +
+      JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]
+  );
+
   mealImg.attr(
     "src",
     JSON.parse(localStorage.getItem("randomMeal"))["strMealThumb"]
@@ -158,9 +166,16 @@ if (localStorage.getItem("randomDrink")) {
   var drinkName = $("#createDrinkName");
   var drinkImg = $("#createDrinkImg");
   var drinkLabel = $("#titleLabelDrink");
+  var drinkLink = $("#createDrinkLink");
 
   drinkLabel.text("For Drinks: ");
   drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
+
+  drinkLink.attr(
+    "href",
+    "https://www.thecocktaildb.com/drink/" +
+      JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]
+  );
 
   drinkImg.attr(
     "src",
