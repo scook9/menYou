@@ -105,15 +105,12 @@ function generateMovie() {
 
       if (movies.length > 0) {
         var randomMovie = movies[Math.floor(Math.random() * movies.length)];
+        localStorage.setItem("randomMovie", JSON.stringify(randomMovie));
 
-        console.log(randomMovie.title);
-        console.log(randomMovie.overview);
       } else {
         console.log("No movies found for the specified criteria.");
       }
       var movieName = $("#createMovieName");
-
-      var movieLink = $("#createMovieLink");
       var movieImg = $("#createMovieImg");
 
       movieName.text(randomMovie.title);
@@ -138,4 +135,19 @@ if (localStorage.getItem("randomDrink")) {
   var drinkLink = $("#createDrinkLink");
   drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
   drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
+}
+
+if (localStorage.getItem("randomMovie")) {
+  var movieName = $("#createMovieName");
+  var movieImg = $("#createMovieImg");
+  movieName.text(JSON.parse(localStorage.getItem("randomMovie"))["title"]);
+  movieImg.attr(
+    "src",
+    "https://image.tmdb.org/t/p/w600_and_h900_bestv2" +
+    JSON.parse(localStorage.getItem("randomMovie"))["poster_path"]
+  );
+  movieImg.attr("alt", "Movie poster");
+  movieImg.width(100);
+  movieImg.height(100);
+
 }
