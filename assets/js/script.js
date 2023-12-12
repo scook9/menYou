@@ -22,10 +22,12 @@ function generateMeal() {
       var mealImg = $("#createMealImg");
       //var mealLink = $("#createMealLink")
       mealName.text(randomMeal["strMeal"]);
+
       mealImg.attr("src", randomMeal["strMealThumb"]);
       mealImg.attr("alt", "Description of the image");
       mealImg.width(100);
       mealImg.height(100);
+
     });
 }
 
@@ -41,30 +43,26 @@ function generateDrink() {
     })
     .then(function (data) {
       var drinks = data.drinks;
-      localStorage.setItem("drinks", JSON.stringify(drinks));
+
       if (drinks.length > 0) {
         var randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
-
-        console.log("Random Drink:", randomDrink);
+        localStorage.setItem("randomDrink", JSON.stringify(randomDrink));
       } else {
         console.log("No drinks found for the specified criteria.");
       }
 
       var drinkName = $("#createDrinkName");
-      var drinkLink = $("#createDrinkLink")
+      var drinkLink = $("#createDrinkLink");
       drinkName.text(randomDrink["strDrink"]);
       drinkLink.text(randomDrink["strDrinkThumb"]);
     });
 }
-
-function generateMovie() {}
 
 function generateDate() {
   generateMeal();
   generateDrink();
   generateMovie();
 }
-
 
 function generateMovie() {
   const options = {
@@ -88,59 +86,12 @@ function generateMovie() {
     .then((response) => console.log(response));
 }
 
-// localStorage.getItem()
-console.log(JSON.stringify(localStorage.getItem("randomMeal")));
-
-// console.log(JSON.stringify(localStorage.getItem("randomMeal"))[\"strMeal\"]);
-
 var mealName = $("#createMealName");
 var mealLink = $("#createMealLink");
-mealName.text(JSON.stringify(localStorage.getItem("randomMeal"))["strMeal"]);
-mealLink.text(JSON.stringify(localStorage.getItem("randomMeal"))["strMealThumb"]);
-// JSON.parse("randonMeal")
+mealName.text(JSON.parse(localStorage.getItem("randomMeal"))["strMeal"]);
+mealLink.text(JSON.parse(localStorage.getItem("randomMeal"))["idMeal"]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var drinkName = $("#createDrinkName");
+var drinkLink = $("#createDrinkLink");
+drinkName.text(JSON.parse(localStorage.getItem("randomDrink"))["strDrink"]);
+drinkLink.text(JSON.parse(localStorage.getItem("randomDrink"))["idDrink"]);
