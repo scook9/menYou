@@ -65,7 +65,7 @@ function generateDrink() {
       var drinkLabel = $("#titleLabelDrink")
       var drinkLink = $("#createDrinkLink");
       var drinkImg = $("#createDrinkImg");
-      drinkLabel.text("For Cocktails: ")
+      drinkLabel.text("For Drinks: ");
       drinkName.text(randomDrink["strDrink"]);
       drinkImg.attr("src", randomDrink["strDrinkThumb"]);
       drinkImg.attr("alt", "Image of drink recipe");
@@ -112,10 +112,10 @@ function generateMovie() {
         console.log("No movies found for the specified criteria.");
       }
       var movieName = $("#createMovieName");
-
+      var movieLabel = $("#titleLabelMovie")
       var movieLink = $("#createMovieLink");
       var movieImg = $("#createMovieImg");
-
+      movieLabel.text("To Watch: ");
       movieName.text(randomMovie.title);
       movieImg.attr(
         "src",
