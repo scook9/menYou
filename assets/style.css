@@ -1,3 +1,35 @@
+:root {
+  --darkest: #590d22;
+  --darker: #800f2f;
+  --dark: #a4133c;
+  --medium: #c9184a;
+  --light: #ff4d6d;
+  --lighter: #ff758f;
+  --lightest: #ff8fa3;
+}
+
 nav h1 {
-    font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
+}
+
+#navbar {
+  background-color: var(--lightest);
+}
+
+body {
+  background-color: var(--darkest);
+  color: var(--lightest);
+}
+
+article {
+  background-color: var(--darker);
+  border-radius: 5px;
+}
+
+img {
+  border-radius: 5px;
+}
+
+a {
+  color: var(--lightest);
 }
