@@ -24,9 +24,10 @@ function generateMeal() {
       }
       var mealName = $("#createMealName");
       var mealImg = $("#createMealImg");
+      var mealLabel = $("#titleLabelMeal")
       //var mealLink = $("#createMealLink")
+      mealLabel.text("For Dinner Tonight: ")
       mealName.text(randomMeal["strMeal"]);
-
       mealImg.attr("src", randomMeal["strMealThumb"]);
       mealImg.attr("alt", "Img of meal recipe");
       mealImg.width(100);
@@ -61,10 +62,10 @@ function generateDrink() {
       }
 
       var drinkName = $("#createDrinkName");
-
+      var drinkLabel = $("#titleLabelDrink")
       var drinkLink = $("#createDrinkLink");
       var drinkImg = $("#createDrinkImg");
-
+      drinkLabel.text("For Cocktails: ")
       drinkName.text(randomDrink["strDrink"]);
       drinkImg.attr("src", randomDrink["strDrinkThumb"]);
       drinkImg.attr("alt", "Image of drink recipe");
