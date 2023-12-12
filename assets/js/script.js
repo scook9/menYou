@@ -23,7 +23,7 @@ function generateMeal() {
       //var mealLink = $("#createMealLink")
       mealName.text(randomMeal["strMeal"]);
       mealImg.attr("src", randomMeal["strMealThumb"]);
-      mealImg.attr("alt", "Description of the image");
+      mealImg.attr("alt", "Img of meal recipe");
       mealImg.width(100);
       mealImg.height(100);
     });
@@ -52,8 +52,14 @@ function generateDrink() {
 
       var drinkName = $("#createDrinkName");
       var drinkLink = $("#createDrinkLink")
+      var drinkImg = $('#createDrinkImg')
       drinkName.text(randomDrink["strDrink"]);
       drinkLink.text(randomDrink["strDrinkThumb"]);
+  
+      drinkImg.attr("src", randomDrink["strDrinkThumb"]);
+      drinkImg.attr("alt", "Image of drink recipe");
+      drinkImg.width(100);
+      drinkImg.height(100);
     });
 }
 
